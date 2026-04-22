@@ -160,7 +160,7 @@
     <script>
     $(document).ready(function () {
 
-        // ── SHARED: render one video card ────────────────────────────────────
+        // SHARED: render one video card
         // Returns HTML for a single card column. Called per-video by buildVideoCarousel.
         function buildVideoCard(video) {
             var stars = '';
@@ -194,7 +194,7 @@
                 </div>`;
         }
 
-        // ── SHARED: build and init a video card carousel ─────────────────────
+        // SHARED: build and init a video card carousel
         // Chunks data into rows of `chunkSize` cards, one .carousel-item per row.
         // chunkSize = 4 → all cards in one row, arrows only useful if API returns >4.
         // chunkSize = 1 → one card per item, arrows always work regardless of count.
@@ -218,7 +218,7 @@
             $(carouselSelector).carousel({ interval: false });
         }
 
-        // ── QUOTES ───────────────────────────────────────────────────────────
+        // QUOTES
         $.get("https://smileschool-api.hbtn.info/quotes", function (data) {
             var html = "";
 
@@ -244,12 +244,12 @@
             $("#quotes-loader").hide();
         });
 
-        // ── POPULAR TUTORIALS ────────────────────────────────────────────────
+        // POPULAR TUTORIALS
         $.get("https://smileschool-api.hbtn.info/popular-tutorials", function (data) {
             buildVideoCarousel(data, '#popular-inner', '#popular-carousel', '#popular-loader');
         });
 
-        // ── LATEST VIDEOS ────────────────────────────────────────────────────
+        // LATEST VIDEOS
         // chunkSize 1 = one .carousel-item per card, so arrows slide card by card.
         $.get("https://smileschool-api.hbtn.info/latest-videos", function (data) {
             buildVideoCarousel(data, '#latest-inner', '#latest-carousel', '#latest-loader', 1);
